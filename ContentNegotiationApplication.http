@@ -1,0 +1,31 @@
+### GET for v1
+GET http://localhost:8080/some-resource
+Accept: application/vnd.kurron.output.v1+json
+
+### POST for v1
+POST http://localhost:8080/some-resource
+Content-Type: application/vnd.kurron.input.v1+json
+Accept: application/vnd.kurron.output.v1+json
+
+{
+  "foo": "{{$random.uuid}}",
+  "bar": {{$random.integer()}}
+}
+
+### GET for v2
+GET http://localhost:8080/some-resource
+Accept: application/vnd.kurron.output.v2+json
+
+### POST for v2
+POST http://localhost:8080/some-resource
+Content-Type: application/vnd.kurron.input.v2+json
+Accept: application/vnd.kurron.output.v2+json
+
+{
+  "foo": "{{$random.uuid}}",
+  "bar": {{$random.integer()}},
+  "baz": "{{$random.uuid}}"
+}
+
+<> 2025-06-20T222711.200.json
+
