@@ -10,7 +10,7 @@ endif::[]
 This project showcases how to use Spring to support multiple API versions using content negotiation. I wanted to keep each version implementation in its own package, minimizing the need for using fully qualified names. To emphasize the isolation, I used identical names is each version, so no FooV1 vs FooV2 DTOs.
 
 == Implementation
-One interesting aspect of the code is that the same resource, `/some-resource`, has its implementation spread across two classes, one for each version. Spring classpath scanning will complain about duplicate bean names, which is easily remedied by providing one, e.g. `@RequestMapping("/some-resource")`.
+One interesting aspect of the code is that the same resource, `/some-resource`, has its implementation spread across two classes, one for each version. Spring classpath scanning will complain about duplicate bean names, which is easily remedied by providing one, e.g. `@RestController("v2.SomeResource")`.
 
 == Prerequisites
 * JDK 21 or greater
