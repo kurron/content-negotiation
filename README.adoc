@@ -10,9 +10,7 @@ endif::[]
 This project showcases how to use Spring to support multiple API versions using content negotiation. I wanted to keep each version implementation in its own package, minimizing the need for using fully qualified names. To emphasize the isolation, I used identical names is each version, so no FooV1 vs FooV2 DTOs.
 
 == Implementation
-Structurizr supports only a single workspace at a time, encouraging us to launch different views depending on the audience.  We'll make use of  https://docs.structurizr.com/dsl/cookbook/workspace-extension/[Workspace extension] and the ideas expressed in https://docs.structurizr.com/usage/enterprise[Enterprise scenario]. The goal is to maintain an enterprise view of the systems while still keeping the modeling local to each team.  In this example, we have two teams, one in Boston and one in Los Angeles, maintaining the systems. We'll maintain three workspaces:
-1. a landscape workspace that models all the systems and their relations ships, maintained by the architecture team
-1. a system workspace, maintained by each team, showing the details of each service and their relationships
+One interesting aspect of the code is that the same resource, `/some-resource`, has its implementation spread across two classes, one for each version. Spring classpath scanning will complain about duplicate bean names, which is easily remedied by providing one, e.g. `@RequestMapping("/some-resource")`.
 
 == Prerequisites
 * JDK 21 or greater
